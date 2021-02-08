@@ -1,3 +1,6 @@
+body{
+  margin: 0px;
+}
 .floatclear{
   float: none;
 }
@@ -58,4 +61,9 @@
 }
 #cuerpo{
   height: 2000px;
+}
+#pie{
+  padding: 30px 10px; /* Large padding which will shrink on scroll (using JS) */
+  transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+  background-color: #f1f1f1;
 }
