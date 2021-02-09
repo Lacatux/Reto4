@@ -7,7 +7,9 @@
 
     <script src="js/scrollDown.js">
     </script>
-
+    <?php
+    include("php/datos.php")
+    ?>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   </head>
@@ -29,7 +31,10 @@
   </div>
 
   <div id="cuerpo">
-
+<?php
+$conexion = conectarBD();
+var_dump($conexion);
+ ?>
   </div>
   <div id="pie">
     <div class="redes">
