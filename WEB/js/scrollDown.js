@@ -8,11 +8,13 @@ function scrollFunction() {
     for (var i = 0; i < x.length; i++) {
         var currentEl = x[i];
         currentEl.style.padding = '5px 5px';
+        currentEl.style.fontSize= '12px'
     }
     var x = document.querySelectorAll('#login');
     for (var i = 0; i < x.length; i++) {
         var currentEl = x[i];
         currentEl.style.padding = '5px 5px';
+        currentEl.style.fontSize= '12px'
     }
   } else {
     document.getElementById("menu").style.padding = "30px 10px";
@@ -21,11 +23,15 @@ function scrollFunction() {
     for (var i = 0; i < x.length; i++) {
         var currentEl = x[i];
         currentEl.style.padding = '12px 12px';
+        currentEl.style.fontSize= '18px'
+
     }
     var x = document.querySelectorAll('#login');
     for (var i = 0; i < x.length; i++) {
         var currentEl = x[i];
         currentEl.style.padding = '12px 12px';
+        currentEl.style.fontSize= '18px'
+
     }
 
   }

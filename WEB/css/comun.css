@@ -1,5 +1,5 @@
-body{
-  margin: 0px;
+*{
+  font-family: 'Ubuntu', sans-serif;
 }
 .floatclear{
   float: none;
@@ -7,13 +7,12 @@ body{
 #menu{
   overflow: hidden;
   background-color: #f1f1f1;
-  padding: 30px 10px; /* Large padding which will shrink on scroll (using JS) */
-  transition: 0.4s; /* Adds a transition effect when the padding is decreased */
-  position: fixed; /* Sticky/fixed navbar */
+  padding: 30px 10px;
+  transition: 0.4s;
+  position: fixed;
   width: 100%;
-  top: 0; /* At the top */
+  top: 0;
   z-index: 99;
-  font-family: 'Ubuntu', sans-serif;
   left: 0px;
 }
 #menu #logo{
@@ -63,7 +62,46 @@ body{
   height: 2000px;
 }
 #pie{
-  padding: 30px 10px; /* Large padding which will shrink on scroll (using JS) */
-  transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+  padding: 40px 10px;
   background-color: #f1f1f1;
+  text-align: center;
+  overflow: hidden;
+}
+#pie p{
+  background-color: #b9b9b9;
+  border-radius: 15px;
+  width: 25%;
+  margin-left: 37%;
+  border-bottom: grey 2px solid;
+  border-right: grey 2px solid;
+
+  padding: 5px;
+}
+.social{
+  width: 25px;
+  height: 25px;
+  transition: 0.4s linear;
+  padding: 15px;
+  border: #f1f1f1 solid 1px
+}
+#fb:hover{
+  width: 40px;
+  height: 40px;
+  background-color: #47599370;
+  border: #475993 5px solid;
+  border-radius: 15px;
+}
+#in:hover{
+  width: 40px;
+  height: 40px;
+  background-color: #c70d8e59;
+  border: #c70d7c 5px solid;
+  border-radius: 15px;
+}
+#tw:hover{
+  width: 40px;
+  height: 40px;
+  background-color: #55adee59;
+  border: #55adee 5px solid;
+  border-radius: 15px;
 }
