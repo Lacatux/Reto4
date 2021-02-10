@@ -7,10 +7,23 @@
 
     <script src="js/scrollDown.js">
     </script>
-    <script type="js/clickMenu.js">
+    <script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
 
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(e) {
+      if (!e.target.matches('.dropbtn')) {
+      var myDropdown = document.getElementById("myDropdown");
+        if (myDropdown.classList.contains('show')) {
+          myDropdown.classList.remove('show');
+        }
+      }
+    }
     </script>
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   </head>
@@ -18,29 +31,34 @@
   <div id='menu'>
     <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" href="#" id="logo">
       <div id="menu-derecha">
-        <!--<a href="#" id='login'>Area Profesores</a>
-        IF PROFESORES -->
+        <a href="#" id='login'>Cerrar Sesion</a>
 
-        <div class="dropdown">
-          <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-          <div id="myDropdown" class="dropdown-content">
-            <a href="#" id='login'>Alta Profesor</a>
-            <a href="#" id='login'>Alta Estudiante</a>
-            <a href="#" id='login'>Area Profesores</a>
-          </div>
+        <div id="desplegable">
+        <button class="dropbtn" onclick="myFunction()">Opciones
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+          <a href="#" id='enlace'>Link 1</a>
+          <a href="#" id='enlace'>Link 2</a>
+          <a href="#" id='enlace'>Link 3</a>
+        </div></div>
 
-
-
-
-        <!--<a href="#" id='login'>Area Estudiantes</a>
-        IF ESTUDIANTES
-        <a href="#" id='login'>Perfil Estudiante</a>
-        <a href="#" id='login'>Cerrar Sesion</a>-->
-
-
-        <a href="#" id="nav">Informacion Academica</a>
         <a href="#" id="nav">Donde Estamos</a>
+        <a href="#" id="nav">Informacion Academica</a>
         <a href="#" class="active" id='nav'>Inicio</a>
+
+
+
+
+
+
+
+
+
+          <!--<a href="#" id='login'>Area Profesores</a>
+          <a href="#" id='login'>Area Estudiantes</a>-->
+
+
+
       </div>
   </div>
 

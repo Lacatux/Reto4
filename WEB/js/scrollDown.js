@@ -4,8 +4,11 @@ function scrollFunction() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.getElementById("menu").style.padding = "5px 10px";
     document.getElementById("menu").style.height = "40px";
+
+
     document.getElementById("logo").style.width = "50px";
     document.getElementById("logo").style.padding = "5px 0px";
+
 
     var x = document.querySelectorAll('#nav');
     for (var i = 0; i < x.length; i++) {
@@ -28,8 +31,11 @@ function scrollFunction() {
   } else {
     document.getElementById("menu").style.padding = "30px 10px";
     document.getElementById("menu").style.height = "110px";
+
+
     document.getElementById("logo").style.width = "160px";
     document.getElementById("logo").style.padding = "0px 0px";
+
 
     var x = document.querySelectorAll('#nav');
     for (var i = 0; i < x.length; i++) {
