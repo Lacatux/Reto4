@@ -4,26 +4,11 @@
     <meta charset="utf-8">
     <title>Centro de Estudios Almi</title>
     <link rel="stylesheet" href="css/comun.css">
+    <link rel="stylesheet" href="css/index.css">
 
-    <script src="js/scrollDown.js">
+    <script src="js/funcionesJs.js">
     </script>
-    <script>
-    /* When the user clicks on the button,
-    toggle between hiding and showing the dropdown content */
-    function myFunction() {
-      document.getElementById("myDropdown").classList.toggle("show");
-    }
 
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(e) {
-      if (!e.target.matches('.dropbtn')) {
-      var myDropdown = document.getElementById("myDropdown");
-        if (myDropdown.classList.contains('show')) {
-          myDropdown.classList.remove('show');
-        }
-      }
-    }
-    </script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   </head>
@@ -32,38 +17,29 @@
     <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" href="#" id="logo">
       <div id="menu-derecha">
         <a href="#" id='login'>Cerrar Sesion</a>
-
         <div id="desplegable">
-        <button class="dropbtn" onclick="myFunction()">Opciones
+        <button id="dropbtn" onclick="myFunction()">Opciones
         </button>
         <div class="dropdown-content" id="myDropdown">
-          <a href="#" id='enlace'>Link 1</a>
-          <a href="#" id='enlace'>Link 2</a>
-          <a href="#" id='enlace'>Link 3</a>
+          <a href="#" id='enlace'>Buscador</a>
+          <a href="#" id='enlace'>Registro</a>
         </div></div>
 
         <a href="#" id="nav">Donde Estamos</a>
         <a href="#" id="nav">Informacion Academica</a>
         <a href="#" class="active" id='nav'>Inicio</a>
-
-
-
-
-
-
-
-
-
           <!--<a href="#" id='login'>Area Profesores</a>
           <a href="#" id='login'>Area Estudiantes</a>-->
-
-
-
       </div>
+
   </div>
 
   <div id="cuerpo">
-
+    <div id="noticia1">
+      <h1>E</h1>
+      <h2>e</h2>
+      <h4>dawdad</h4>
+    </div>
   </div>
   <div id="pie">
     <div class="redes">
