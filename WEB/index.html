@@ -7,23 +7,37 @@
 
     <script src="js/scrollDown.js">
     </script>
-    <?php
-    include("php/datos.php")
-    ?>
+    <script type="js/clickMenu.js">
+
+    </script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   </head>
   <body>
   <div id='menu'>
-    <a href="#" id='logo'>Centro de Estudios Almi</a>
+    <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" href="#" id="logo">
       <div id="menu-derecha">
-        <a href="#" id='login'>Area Profesores</a>
-        <!-- IF PROFESORES -->
-        <!-- <a href="#" id='login'>Alta Profesor</a> -->
-        <!-- <a href="#" id='login'>Alta Estudiante</a> -->
-        <!-- <a href="#" id='login'>Area Profesores</a> -->
+        <!--<a href="#" id='login'>Area Profesores</a>
+        IF PROFESORES -->
 
-        <a href="#" id='login'>Area Estudiantes</a>
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#" id='login'>Alta Profesor</a>
+            <a href="#" id='login'>Alta Estudiante</a>
+            <a href="#" id='login'>Area Profesores</a>
+          </div>
+
+
+
+
+        <!--<a href="#" id='login'>Area Estudiantes</a>
+        IF ESTUDIANTES
+        <a href="#" id='login'>Perfil Estudiante</a>
+        <a href="#" id='login'>Cerrar Sesion</a>-->
+
+
         <a href="#" id="nav">Informacion Academica</a>
         <a href="#" id="nav">Donde Estamos</a>
         <a href="#" class="active" id='nav'>Inicio</a>
@@ -31,10 +45,7 @@
   </div>
 
   <div id="cuerpo">
-<?php
-$conexion = conectarBD();
-var_dump($conexion);
- ?>
+
   </div>
   <div id="pie">
     <div class="redes">
