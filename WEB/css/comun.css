@@ -73,6 +73,7 @@
 
 }
 #menu-derecha #desplegable #dropbtn {
+  color: black;
   cursor: pointer;
   border: none;
   outline: none;
@@ -91,12 +92,12 @@
   overflow: hidden;
 }
 #pie p{
-  background-color: #b9b9b9;
+  background-color: #e1e1e1;
   border-radius: 15px;
   width: 25%;
   margin-left: 37%;
-  border-bottom: grey 2px solid;
-  border-right: grey 2px solid;
+  border-bottom: #322c7c 3px solid;
+  border-right: #322c7c 3px solid;
   padding: 5px;
 }
 #logo{

@@ -5,6 +5,9 @@ h1{
 h2{
   text-align: center;
   color: #322c79;
+}
+p{
+  color: #59576d;
 
 }
 #noticias .noticia{
@@ -14,7 +17,6 @@ h2{
   width: 28%;
   float: left;
   background-color: #f5f5f5;
-  color: #59576d;
   border-bottom: #322c79 3px solid;
   border-right: #322c79 3px solid;
   border-radius: 25px;
