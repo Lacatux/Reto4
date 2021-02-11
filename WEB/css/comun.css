@@ -6,13 +6,14 @@
 .floatclear{
   float: none;
 }
+
 #menu{
   overflow: visible;
   background-color: #f1f1f1;
   padding: 30px 10px;
   position: fixed;
   width: 100%;
-  top: 0;
+  top: 0px;
   left: 0px;
 }
 #menu #logo{
@@ -79,11 +80,12 @@
   background-color: inherit;
 }
 #cuerpo{
-  height: 2000px;
   margin-top: 15%;
 }
 #pie{
-  padding: 40px 10px;
+  margin-top: 1%;
+  position: relative;
+  width: 99%;
   background-color: #f1f1f1;
   text-align: center;
   overflow: hidden;
