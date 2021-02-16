@@ -14,30 +14,54 @@
   </head>
   <body>
   <div id='menu'>
-    <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" href="#" id="logo">
+    <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" id="logo">
       <div id="menu-derecha">
-        <a href="#" id='login'>Cerrar Sesion</a>
-        <div id="desplegable">
-        <button id="dropbtn" onclick="myFunction()">'nombre_profesor'
-        </button>
-        <div class="dropdown-content" id="myDropdown">
-          <a href="#" id='enlace'>Buscador</a>
-          <a href="#" id='enlace'>Registro</a>
-        </div></div>
-
-        <a href="#" id="nav">Donde Estamos</a>
-        <a href="#" id="nav">Informacion Academica</a>
-        <a href="#" class="active" id='nav'>Inicio</a>
-          <!--<a href="#" id='login'>Area Profesores</a>
-          <a href="#" id='login'>Area Estudiantes</a>-->
+        <?php
+        $numero = 0;
+        if ($numero == 1) {
+          echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
+          echo "<div id='desplegable'>";
+          echo "<button id='dropbtn' onclick='myFunction()'>'nombre_estudiante'";
+          echo "</button>";
+          echo "<div class='dropdown-content' id='myDropdown'>";
+          echo "<a href='notasAlumno' id='enlace'>Notas</a>";
+          echo "</div></div>";
+        }elseif ($numero == 2) {
+          echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
+          echo "<div id='desplegable'>";
+          echo "<button id='dropbtn' onclick='myFunction()'>'nombre_profesor'";
+          echo "</button>";
+          echo "<div class='dropdown-content' id='myDropdown'>";
+          echo "<a href='#' id='enlace'>Buscador</a>";
+          echo "<a href='#' id='enlace'>Registro</a>";
+          echo "</div></div>";
+        }else {
+          echo "<div id='desplegable'>";
+          echo "<button id='dropbtn' onclick='myFunction()'>Intranet";
+          echo "</button>";
+          echo "<div class='dropdown-content' id='myDropdown'>";
+          ?>
+          <form id="formLogin" action="login.php" method="post">
+            <label for="user">DNI</label>
+            <input type="text" name="user"><br>
+            <label for="pass">Contraseña</label>
+            <input type="password" name="pass"><br><br>
+            <button type="button" name="submit">Enviar</button>
+          </form>
+          <?php
+          echo "</div></div>";
+        }
+        ?>
+        <a href="contacto.php" id="nav">Contacto</a>
+        <a href="infoAcademica.php" id="nav">Informacion Academica</a>
+        <a href="index.php" id='nav' class="active">Inicio</a>
       </div>
-
   </div>
 
   <div id="cuerpo">
     <div id="informacion">
       <h1>InformAlmi</h1>
-      <img src="source/images/AlmiLogo.png" alt="" class="img">
+      <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" class="img">
 
       <div class="info">
         <h2>QUIÉNES SOMOS</h2>
@@ -59,6 +83,16 @@
 
     <div id="noticias">
       <h1>NoticiAlmi</h1>
+      <div class="noticia">
+        <h2>Titulo Noticia</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+           Nulla commodo porttitor metus at eleifend. Morbi lacinia eu erat vel interdum.
+           Vestibulum luctus ultricies quam, a scelerisque enim malesuada quis. Morbi
+            elementum rutrum orci vitae elementum. Donec at neque nec leo tincidunt aliquam at a urna.
+             Morbi accumsan odio eros. Fusce auctor libero lectus, sed condimentum nulla placerat in.
+              Fusce rhoncus, neque vel hendrerit volutpat, arcu odio varius enim, ac pellentesque lacus nulla sed est.</p>
+      </div>
+      <!--<div class= "floatclear"></div> #No se que hace esto aqui, pero lo voy a comentar por si acaso-->
 
       <div class="noticia">
         <h2>Titulo Noticia</h2>
@@ -69,44 +103,16 @@
              Morbi accumsan odio eros. Fusce auctor libero lectus, sed condimentum nulla placerat in.
               Fusce rhoncus, neque vel hendrerit volutpat, arcu odio varius enim, ac pellentesque lacus nulla sed est.</p>
       </div>
-      <div class= "floatclear"></div>
+      <div class="noticia">
+        <h2>Titulo Noticia</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+           Nulla commodo porttitor metus at eleifend. Morbi lacinia eu erat vel interdum.
+           Vestibulum luctus ultricies quam, a scelerisque enim malesuada quis. Morbi
+            elementum rutrum orci vitae elementum. Donec at neque nec leo tincidunt aliquam at a urna.
+             Morbi accumsan odio eros. Fusce auctor libero lectus, sed condimentum nulla placerat in.
+              Fusce rhoncus, neque vel hendrerit volutpat, arcu odio varius enim, ac pellentesque lacus nulla sed est.</p>
+      </div>
 
-      <div class="noticia">
-        <h2>Titulo Noticia</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Nulla commodo porttitor metus at eleifend. Morbi lacinia eu erat vel interdum.
-           Vestibulum luctus ultricies quam, a scelerisque enim malesuada quis. Morbi
-            elementum rutrum orci vitae elementum. Donec at neque nec leo tincidunt aliquam at a urna.
-             Morbi accumsan odio eros. Fusce auctor libero lectus, sed condimentum nulla placerat in.
-              Fusce rhoncus, neque vel hendrerit volutpat, arcu odio varius enim, ac pellentesque lacus nulla sed est.</p>
-      </div>
-      <div class="noticia">
-        <h2>Titulo Noticia</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Nulla commodo porttitor metus at eleifend. Morbi lacinia eu erat vel interdum.
-           Vestibulum luctus ultricies quam, a scelerisque enim malesuada quis. Morbi
-            elementum rutrum orci vitae elementum. Donec at neque nec leo tincidunt aliquam at a urna.
-             Morbi accumsan odio eros. Fusce auctor libero lectus, sed condimentum nulla placerat in.
-              Fusce rhoncus, neque vel hendrerit volutpat, arcu odio varius enim, ac pellentesque lacus nulla sed est.</p>
-      </div>
-      <div class="noticia">
-        <h2>Titulo Noticia</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Nulla commodo porttitor metus at eleifend. Morbi lacinia eu erat vel interdum.
-           Vestibulum luctus ultricies quam, a scelerisque enim malesuada quis. Morbi
-            elementum rutrum orci vitae elementum. Donec at neque nec leo tincidunt aliquam at a urna.
-             Morbi accumsan odio eros. Fusce auctor libero lectus, sed condimentum nulla placerat in.
-              Fusce rhoncus, neque vel hendrerit volutpat, arcu odio varius enim, ac pellentesque lacus nulla sed est.</p>
-      </div>
-      <div class="noticia">
-        <h2>Titulo Noticia</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Nulla commodo porttitor metus at eleifend. Morbi lacinia eu erat vel interdum.
-           Vestibulum luctus ultricies quam, a scelerisque enim malesuada quis. Morbi
-            elementum rutrum orci vitae elementum. Donec at neque nec leo tincidunt aliquam at a urna.
-             Morbi accumsan odio eros. Fusce auctor libero lectus, sed condimentum nulla placerat in.
-              Fusce rhoncus, neque vel hendrerit volutpat, arcu odio varius enim, ac pellentesque lacus nulla sed est.</p>
-      </div>
 
 
     </div>

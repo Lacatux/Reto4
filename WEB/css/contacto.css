@@ -1,0 +1,40 @@
+h1{
+  text-align: center;
+  color: #322c79;
+}
+h2{
+  text-align: center;
+  color: #322c79;
+}
+p{
+  color: #59576d;
+
+}
+#informacion .info{
+  border-bottom: #322c79 3px solid;
+  border-radius: 10px;
+  width: 45%;
+  padding-top: 10px;
+  margin-left: 2.5%;
+  background-color: #f1f1f1;
+  margin-top: 5px;
+  padding: 10px;
+  float: left;
+}
+.img{
+  position: relative;
+  z-index: -3;
+  float: right;
+  width: 500px;
+  padding-right: 10%;
+  padding-top: 45px;
+}
+.contacto{
+  padding-left: 9%;
+}
+.contacto label{
+  color: #59576d;
+}
+.contacto input{
+  width: 550px;
+}

@@ -6,7 +6,6 @@ function scrollFunction() {
     document.getElementById("menu").style.padding = "5px 10px";
     document.getElementById("menu").style.height = "40px";
 
-
     document.getElementById("logo").style.width = "50px";
     document.getElementById("logo").style.padding = "5px 0px";
 
@@ -14,16 +13,15 @@ function scrollFunction() {
     document.getElementById("desplegable").style.padding = '5px 5px';
     document.getElementById("desplegable").style.height= '18px';
 
-
     document.getElementById("dropbtn").style.fontSize= '12px';
     document.getElementById("dropbtn").style.padding = '7px';
-
 
     document.getElementById("myDropdown").style.maxWidth = '74px';
     document.getElementById("myDropdown").style.top = '92%';
 
     document.getElementById("cuerpo").style.marginTop = '18%';
 
+    document.getElementById("formLogin").style.right = '204px';
 
     var x = document.querySelectorAll('#enlace');
     for (var i = 0; i < x.length; i++) {
@@ -55,15 +53,12 @@ function scrollFunction() {
     document.getElementById("menu").style.padding = "30px 10px";
     document.getElementById("menu").style.height = "110px";
 
-
     document.getElementById("logo").style.width = "160px";
     document.getElementById("logo").style.padding = "0px 0px";
-
 
     document.getElementById("desplegable").style.margin = "0px 1px";
     document.getElementById("desplegable").style.padding = '12px 12px';
     document.getElementById("desplegable").style.height= '25px';
-
 
     document.getElementById("dropbtn").style.fontSize= '18px';
     document.getElementById("dropbtn").style.padding= '3px';
@@ -73,6 +68,7 @@ function scrollFunction() {
 
     document.getElementById("cuerpo").style.marginTop = '15%';
 
+    document.getElementById("formLogin").style.right = '183px';
 
     var x = document.querySelectorAll('#enlace');
     for (var i = 0; i < x.length; i++) {
@@ -109,13 +105,6 @@ function scrollFunction() {
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
-  // Close the dropdown if the user clicks outside of it
-  window.onclick = function(e) {
-    if (!e.target.matches('#dropbtn')) {
-    var myDropdown = document.getElementById("myDropdown");
-      if (myDropdown.classList.contains('show')) {
-        myDropdown.classList.remove('show');
-      }
-    }
-  }
+  document.getElementById("desplegable").style.backgroundColor = "#ff543d";
+
 }
