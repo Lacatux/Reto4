@@ -1,32 +1,40 @@
 <?php
-function conectarBD(){
+function conectarBD()
+{
+  //DESCRIPCION DE LA BASE DE DATOS (IP, PUERTO...)
   $db = "(DESCRIPTION=(ADDRESS_LIST = (ADDRESS = (PROTOCOL =TCP)
   (HOST = 192.168.6.172)(PORT = 1539)))(CONNECT_DATA=(SID=XE)))";
-
+  //INTENTO DE CONEXION DE LA BASE DE DATOS
   $conn = oci_connect('basegenerica', 'Nombre_Generico2020', $db);
   if (!$conn) {
       $e = oci_error();
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
   }
   return $conn;
-
   oci_close($conn);
-}
+}//FIN FUNCION conectarBD
 //====================================================================
-function pruebaSel(){
-  $conn = conectarBD();
-  $stid = oci_parse($conn, "SELECT * FROM profesor");
-  oci_execute($stid);
+function loginUser($dni, $pass)
+{
+  //CONEXION DE LA BBDD
+  $conex = conectarBD();
+  //SELECCIONAR DATOS EN UNA SELECT
+  $sentencia = "SELECT * FROM profesor WHERE dni = 'admin' AND contraseña = 'admin'" ;
+  $sql = oci_parse($conex, $sentencia);
+  //EJECUTAR SENTENCIA
+  $ejecutar = oci_execute($sql);
 
-  echo "<table border='1'>\n";
-  while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-    echo "<tr>\n";
-    foreach ($row as $item) {
-        echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "") . "</td>\n";
-    }
-    echo "</tr>\n";
-}
-echo "</table>\n";
+  //ASOCIAR PARAMETROS
+  $nombre="";
+  $vincular =oci_bind_by_name($sql, "nombre", $nombre);
+  var_dump($vincular);
 
-}
+
+
+
+
+
+  return $datos;
+}//FIN FUNCION loginUser
+//====================================================================
 ?>

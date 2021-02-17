@@ -9,8 +9,9 @@
     <script src="js/funcionesJs.js">
     </script>
     <?php
-    include("php/datos.php");
-     ?>
+      session_start();
+      include("php/datos.php");
+    ?>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   </head>
@@ -43,12 +44,12 @@
           echo "</button>";
           echo "<div class='dropdown-content' id='myDropdown'>";
           ?>
-          <form id="formLogin" action="login.php" method="post">
-            <label for="user">DNI</label>
-            <input type="text" name="user"><br>
+          <form id="formLogin" action="php/login.php" method="post">
+            <label for="dni">DNI</label>
+            <input type="text" name="dni"><br>
             <label for="pass">Contraseña</label>
             <input type="password" name="pass"><br><br>
-            <button type="button" name="submit">Enviar</button>
+            <input id="enviar" type="submit" value="Enviar"/>
           </form>
           <?php
           echo "</div></div>";
