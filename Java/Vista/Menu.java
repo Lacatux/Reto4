@@ -15,9 +15,10 @@ import java.awt.Toolkit;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
-	private JButton btnGestorDeDatos;
+	private JButton btnGestor;
 	private JButton btnAulas;
 	private JButton btnSalir;
+	private JButton btnExpediente;
 	private JLabel lblLogo;
 	private ImageIcon logo = new ImageIcon("images\\logo.png");
 
@@ -50,28 +51,30 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		btnGestorDeDatos = new JButton("Gestor de datos");
-		btnGestorDeDatos.setFont(new Font("Tahoma", Font.BOLD, 27));
-		btnGestorDeDatos.setBounds(44, 312, 299, 75);
-		contentPane.add(btnGestorDeDatos);
-		
 		btnAulas = new JButton("Aulas");
 		btnAulas.setFont(new Font("Tahoma", Font.BOLD, 27));
-		btnAulas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnAulas.setBounds(44, 201, 299, 75);
+		btnAulas.setBounds(44, 201, 299, 59);
 		contentPane.add(btnAulas);
+		
+		btnGestor = new JButton("Gestor de datos");
+		btnGestor.setFont(new Font("Tahoma", Font.BOLD, 27));
+		btnGestor.setBounds(44, 287, 299, 59);
+		contentPane.add(btnGestor);
+		
+		btnExpediente = new JButton("Expediente");
+		btnExpediente.setFont(new Font("Tahoma", Font.BOLD, 27));
+		btnExpediente.setBounds(44, 372, 299, 59);
+		contentPane.add(btnExpediente);
 		
 		btnSalir = new JButton("Salir");
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 27));
-		btnSalir.setBounds(44, 432, 299, 75);
+		btnSalir.setBounds(44, 456, 299, 59);
 		contentPane.add(btnSalir);
 		
 		lblLogo = new JLabel("");
 		lblLogo.setIcon(logo);
 		lblLogo.setBounds(71, 11, 240, 157);
 		contentPane.add(lblLogo);
+		
 	}
 }
