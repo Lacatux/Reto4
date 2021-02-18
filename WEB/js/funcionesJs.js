@@ -21,7 +21,6 @@ function scrollFunction() {
 
     document.getElementById("cuerpo").style.marginTop = '18%';
 
-    document.getElementById("formLogin").style.right = '204px';
 
     var x = document.querySelectorAll('#enlace');
     for (var i = 0; i < x.length; i++) {
@@ -48,6 +47,9 @@ function scrollFunction() {
         currentEl.style.height= '18px';
     }
 
+    //esto debe estar aqui, si no rompe el resto
+    document.getElementById("formLogin").style.right = '204px';
+
   } else {
     //MAXIMIZAR
     document.getElementById("menu").style.padding = "30px 10px";
@@ -68,7 +70,6 @@ function scrollFunction() {
 
     document.getElementById("cuerpo").style.marginTop = '15%';
 
-    document.getElementById("formLogin").style.right = '183px';
 
     var x = document.querySelectorAll('#enlace');
     for (var i = 0; i < x.length; i++) {
@@ -97,7 +98,8 @@ function scrollFunction() {
     }
 
 
-
+    //esto debe estar aqui, si no rompe el resto
+    document.getElementById("formLogin").style.right = '183px';
 
   }
 }
@@ -105,6 +107,4 @@ function scrollFunction() {
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
-  document.getElementById("desplegable").style.backgroundColor = "#ff543d";
-
 }

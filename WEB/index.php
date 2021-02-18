@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="css/comun.css">
     <link rel="stylesheet" href="css/index.css">
 
-    <script src="js/funcionesJs.js">
-    </script>
+    <script src="js/funcionesJs.js"></script>
+
     <?php
       session_start();
       include("php/datos.php");
@@ -21,7 +21,8 @@
       <div id="menu-derecha">
         <?php
         $numero = 0;
-        if ($numero == 1) {
+
+        if ($_SESSION["tipoUser"] == 1) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
           echo "<div id='desplegable'>";
           echo "<button id='dropbtn' onclick='myFunction()'>'nombre_estudiante'";
@@ -29,7 +30,7 @@
           echo "<div class='dropdown-content' id='myDropdown'>";
           echo "<a href='notasAlumno' id='enlace'>Notas</a>";
           echo "</div></div>";
-        }elseif ($numero == 2) {
+        }elseif ($_SESSION["tipoUser"] == 2) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
           echo "<div id='desplegable'>";
           echo "<button id='dropbtn' onclick='myFunction()'>'nombre_profesor'";
@@ -57,7 +58,7 @@
         ?>
         <a href="contacto.php" id="nav">Contacto</a>
         <a href="infoAcademica.php" id="nav">Informacion Academica</a>
-        <a href="index.php" id='nav' class="active">Inicio</a>
+        <a href="index.php" id="nav" class="active">Inicio</a>
       </div>
   </div>
 
