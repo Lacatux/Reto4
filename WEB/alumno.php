@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Centro de Estudios Almi</title>
     <link rel="stylesheet" href="css/comun.css">
-    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="css/alumno.css">
 
     <script src="js/funcionesJs.js"></script>
 
@@ -22,12 +22,7 @@
         <?php
         if ($_SESSION["tipoUser"] == 1) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
-          echo "<div id='desplegable'>";
-          echo "<button id='dropbtn' onclick='myFunction()'>".$_SESSION["nombre"]."";
-          echo "</button>";
-          echo "<div class='dropdown-content' id='myDropdown'>";
-          echo "<a href='notasAlumno' id='enlace'>Notas</a>";
-          echo "</div></div>";
+          echo "<a href='alumno.php' id='login' class='active'>".$_SESSION['nombre']."</a>";
         }elseif ($_SESSION["tipoUser"] == 2) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
           echo "<div id='desplegable'>";
@@ -54,46 +49,40 @@
           echo "</div></div>";
         }
         ?>
-        <a href="contacto.php" id="nav" class="active">Contacto</a>
+        <a href="contacto.php" id="nav">Contacto</a>
         <a href="infoAcademica.php" id="nav">Informacion Academica</a>
         <a href="index.php" id="nav">Inicio</a>
       </div>
   </div>
+    <?php
+    if ($_SESSION["tipoUser"] != 1) {
+        header("location: index.php");
+    }else {
+    ?>
+    <div id="cuerpo">
+        <div id="infoAlumno">
+        <?php
+        $notas = getNotasByUser($_SESSION['idUser']);
+        echo "<img src='source/images/usuario.svg' alt='Imagen Usuario' id='imgUser'>";
+        echo "<a href='' id='cambiarPass'>Cambiar Contraseña</a>";
+        echo "<div class= 'floatclear'></div>";
+        echo "<h1>".$_SESSION['nombre']."</h1>";
+        echo "<h1>".$_SESSION['apellidos']."</h1>";
+        echo "<h1>".$_SESSION['dni']."</h1>";
+        echo "<h1>".$_SESSION['fechaNac']."</h1>";
+        //var_dump($notas);
+        ?>
+        </div>
+ 
+        
 
-  <div id="cuerpo">
-    <div id="informacion">
-      <h1>CONTACTO</h1>
-
-      <div class="info">
-        <h2>CENTRO DE ESTUDIOS ALMI</h2>
-        <p>Avda Lehendakari Aguirre, 29-1º (Deusto) Junto a la boca de metro</p>
-        <p>48014 Bilbao (Bizkaia)</p>
-        <p>Teléfono: 94 410 38 37</p>
-        <p>Horario: 8:00 – 20:00 (LUNES A VIERNES)</p>
-        <p>E-mail: c.estudios.almi@gmail.com</p>
-      </div>
-      <div class="info">
-        <h2>CONTACTO</h2><br>
-
-        <form class="contacto" action="index.html" method="post">
-          <label for="">Nombre *</label><br>
-          <input type="text" name="nombre"><br><br>
-          <label for="">Correo Electronico *</label><br>
-          <input type="text" name="email"><br><br>
-          <label for="">Telefono</label><br>
-          <input type="text" name="telefono"><br><br>
-          <label for="">Asunto *</label><br>
-          <input type="text" name="asunto"><br><br>
-          <label for="">Mensaje *</label><br>
-          <textarea name="mensaje" rows="8" cols="50"></textarea><br><br>
-          <button type="button" name="enviar">Enviar</button>
-        </form>
-        <p>(* Campo Obligatorio)</p>
-      </div>
     </div>
-    </div>
+    <?php
+    }//FINAL DEL ELSE EN CASO DE NO HABER SESION INICIADA
+    ?>
 
-  </div>
+
+
   <div id="pie">
     <div class="redes">
       <p>Nuestras Redes Sociales</p>

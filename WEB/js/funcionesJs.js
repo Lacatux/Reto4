@@ -9,16 +9,6 @@ function scrollFunction() {
     document.getElementById("logo").style.width = "50px";
     document.getElementById("logo").style.padding = "5px 0px";
 
-    document.getElementById("desplegable").style.margin = "-15px 2px";
-    document.getElementById("desplegable").style.padding = '5px 5px';
-    document.getElementById("desplegable").style.height= '18px';
-
-    document.getElementById("dropbtn").style.fontSize= '12px';
-    document.getElementById("dropbtn").style.padding = '7px';
-
-    document.getElementById("myDropdown").style.maxWidth = '74px';
-    document.getElementById("myDropdown").style.top = '92%';
-
     document.getElementById("cuerpo").style.marginTop = '18%';
 
 
@@ -48,6 +38,16 @@ function scrollFunction() {
     }
 
     //esto debe estar aqui, si no rompe el resto
+    document.getElementById("desplegable").style.margin = "-15px 2px";
+    document.getElementById("desplegable").style.padding = '5px 5px';
+    document.getElementById("desplegable").style.height= '18px';
+
+    document.getElementById("dropbtn").style.fontSize= '12px';
+    document.getElementById("dropbtn").style.padding = '7px';
+
+    document.getElementById("myDropdown").style.maxWidth = '74px';
+    document.getElementById("myDropdown").style.top = '92%';
+
     document.getElementById("formLogin").style.right = '204px';
 
   } else {
@@ -57,16 +57,6 @@ function scrollFunction() {
 
     document.getElementById("logo").style.width = "160px";
     document.getElementById("logo").style.padding = "0px 0px";
-
-    document.getElementById("desplegable").style.margin = "0px 1px";
-    document.getElementById("desplegable").style.padding = '12px 12px';
-    document.getElementById("desplegable").style.height= '25px';
-
-    document.getElementById("dropbtn").style.fontSize= '18px';
-    document.getElementById("dropbtn").style.padding= '3px';
-
-    document.getElementById("myDropdown").style.maxWidth = '100px';
-    document.getElementById("myDropdown").style.top = '63%';
 
     document.getElementById("cuerpo").style.marginTop = '15%';
 
@@ -99,6 +89,17 @@ function scrollFunction() {
 
 
     //esto debe estar aqui, si no rompe el resto
+    
+    document.getElementById("desplegable").style.margin = "0px 1px";
+    document.getElementById("desplegable").style.padding = '12px 12px';
+    document.getElementById("desplegable").style.height= '25px';
+
+    document.getElementById("dropbtn").style.fontSize= '18px';
+    document.getElementById("dropbtn").style.padding= '3px';
+
+    document.getElementById("myDropdown").style.maxWidth = '100px';
+    document.getElementById("myDropdown").style.top = '63%';
+    
     document.getElementById("formLogin").style.right = '183px';
 
   }

@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <title>Centro de Estudios Almi</title>
     <link rel="stylesheet" href="css/comun.css">
-    <link rel="stylesheet" href="css/infoAcademica.css">
+    <link rel="stylesheet" href="css/index.css">
 
-    <script src="js/funcionesJs.js">
-    </script>
+    <script src="js/funcionesJs.js"></script>
+
     <?php
-    include("php/datos.php");
-     ?>
+      session_start();
+      include("php/datos.php");
+    ?>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   </head>
@@ -19,19 +20,18 @@
     <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" id="logo">
       <div id="menu-derecha">
         <?php
-        $numero = 0;
-        if ($numero == 1) {
+        if ($_SESSION["tipoUser"] == 1) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
           echo "<div id='desplegable'>";
-          echo "<button id='dropbtn' onclick='myFunction()'>'nombre_estudiante'";
+          echo "<button id='dropbtn' onclick='myFunction()'>".$_SESSION["nombre"]."";
           echo "</button>";
           echo "<div class='dropdown-content' id='myDropdown'>";
           echo "<a href='notasAlumno' id='enlace'>Notas</a>";
           echo "</div></div>";
-        }elseif ($numero == 2) {
+        }elseif ($_SESSION["tipoUser"] == 2) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
           echo "<div id='desplegable'>";
-          echo "<button id='dropbtn' onclick='myFunction()'>'nombre_profesor'";
+          echo "<button id='dropbtn' onclick='myFunction()'>".$_SESSION["nombre"]."";
           echo "</button>";
           echo "<div class='dropdown-content' id='myDropdown'>";
           echo "<a href='#' id='enlace'>Buscador</a>";
@@ -43,12 +43,12 @@
           echo "</button>";
           echo "<div class='dropdown-content' id='myDropdown'>";
           ?>
-          <form id="formLogin" action="login.php" method="post">
-            <label for="user">DNI</label>
-            <input type="text" name="user"><br>
+          <form id="formLogin" action="php/login.php" method="post">
+            <label for="dni">DNI</label>
+            <input type="text" name="dni"><br>
             <label for="pass">Contraseña</label>
             <input type="password" name="pass"><br><br>
-            <button type="button" name="submit">Enviar</button>
+            <input id="enviar" type="submit" value="Enviar"/>
           </form>
           <?php
           echo "</div></div>";
@@ -56,14 +56,12 @@
         ?>
         <a href="contacto.php" id="nav">Contacto</a>
         <a href="infoAcademica.php" id="nav" class="active">Informacion Academica</a>
-        <a href="index.php" id='nav'>Inicio</a>
+        <a href="index.php" id="nav">Inicio</a>
       </div>
   </div>
 
   <div id="cuerpo">
-    <?php
-    pruebaSel();
-     ?>
+
 
 
   </div>

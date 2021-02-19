@@ -20,20 +20,13 @@
     <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" id="logo">
       <div id="menu-derecha">
         <?php
-        $numero = 0;
-
         if ($_SESSION["tipoUser"] == 1) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
-          echo "<div id='desplegable'>";
-          echo "<button id='dropbtn' onclick='myFunction()'>'nombre_estudiante'";
-          echo "</button>";
-          echo "<div class='dropdown-content' id='myDropdown'>";
-          echo "<a href='notasAlumno' id='enlace'>Notas</a>";
-          echo "</div></div>";
+          echo "<a href='alumno.php' id='login'>".$_SESSION['user']."</a>";
         }elseif ($_SESSION["tipoUser"] == 2) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
           echo "<div id='desplegable'>";
-          echo "<button id='dropbtn' onclick='myFunction()'>'nombre_profesor'";
+          echo "<button id='dropbtn' onclick='myFunction()'>".$_SESSION["nombre"]."";
           echo "</button>";
           echo "<div class='dropdown-content' id='myDropdown'>";
           echo "<a href='#' id='enlace'>Buscador</a>";
@@ -58,7 +51,7 @@
         ?>
         <a href="contacto.php" id="nav">Contacto</a>
         <a href="infoAcademica.php" id="nav">Informacion Academica</a>
-        <a href="index.php" id="nav" class="active">Inicio</a>
+        <a href="index.php" id="nav">Inicio</a>
       </div>
   </div>
 
@@ -87,38 +80,19 @@
 
     <div id="noticias">
       <h1>NoticiAlmi</h1>
-      <div class="noticia">
-        <h2>Titulo Noticia</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Nulla commodo porttitor metus at eleifend. Morbi lacinia eu erat vel interdum.
-           Vestibulum luctus ultricies quam, a scelerisque enim malesuada quis. Morbi
-            elementum rutrum orci vitae elementum. Donec at neque nec leo tincidunt aliquam at a urna.
-             Morbi accumsan odio eros. Fusce auctor libero lectus, sed condimentum nulla placerat in.
-              Fusce rhoncus, neque vel hendrerit volutpat, arcu odio varius enim, ac pellentesque lacus nulla sed est.</p>
-      </div>
-      <!--<div class= "floatclear"></div> #No se que hace esto aqui, pero lo voy a comentar por si acaso-->
 
-      <div class="noticia">
-        <h2>Titulo Noticia</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Nulla commodo porttitor metus at eleifend. Morbi lacinia eu erat vel interdum.
-           Vestibulum luctus ultricies quam, a scelerisque enim malesuada quis. Morbi
-            elementum rutrum orci vitae elementum. Donec at neque nec leo tincidunt aliquam at a urna.
-             Morbi accumsan odio eros. Fusce auctor libero lectus, sed condimentum nulla placerat in.
-              Fusce rhoncus, neque vel hendrerit volutpat, arcu odio varius enim, ac pellentesque lacus nulla sed est.</p>
-      </div>
-      <div class="noticia">
-        <h2>Titulo Noticia</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Nulla commodo porttitor metus at eleifend. Morbi lacinia eu erat vel interdum.
-           Vestibulum luctus ultricies quam, a scelerisque enim malesuada quis. Morbi
-            elementum rutrum orci vitae elementum. Donec at neque nec leo tincidunt aliquam at a urna.
-             Morbi accumsan odio eros. Fusce auctor libero lectus, sed condimentum nulla placerat in.
-              Fusce rhoncus, neque vel hendrerit volutpat, arcu odio varius enim, ac pellentesque lacus nulla sed est.</p>
-      </div>
+        <?php
+          $noticia = getNoticias();
+
+          for ($i=0; $i < sizeOf($noticia); $i++) { 
+            echo "<div class='noticia'>";
+            echo "<h2>".$noticia[$i]['titulo']."</h2>";
+            echo "<p>".$noticia[$i]['cuerpo']."</p>";
+            echo "</div>";
+          }
 
 
-
+        ?>
     </div>
 
   </div>
