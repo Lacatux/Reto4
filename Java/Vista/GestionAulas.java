@@ -83,7 +83,7 @@ public class GestionAulas extends JFrame {
 		panel.add(btnSalir);
 		
 		ListaNombres = new JList();
-		ListaNombres.setBounds(212, 68, 167, 227);
+		ListaNombres.setBounds(209, 74, 167, 227);
 		panel.add(ListaNombres);
 		
 		JButton btnNewButton_3 = new JButton(">>");
@@ -111,14 +111,86 @@ public class GestionAulas extends JFrame {
 		panel.add(btnDown);
 		
 		scrollBar = new JScrollBar();
-		scrollBar.setBounds(362, 68, 17, 227);
+		scrollBar.setBounds(374, 74, 17, 227);
 		panel.add(scrollBar);
 		
 		//CANVAS
 		
-		areaDibujo= new AreaDibujo(this);
+		areaDibujo = new AreaDibujo(this);
 		contentPane.add(areaDibujo);
 		
 	}//FIN DEL CONSTRUCTOR
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	public JList getListaNombres() {
+		return ListaNombres;
+	}
+
+	public void setListaNombres(JList listaNombres) {
+		ListaNombres = listaNombres;
+	}
+
+	public JButton getBtnLimpiar() {
+		return btnLimpiar;
+	}
+
+	public void setBtnLimpiar(JButton btnLimpiar) {
+		this.btnLimpiar = btnLimpiar;
+	}
+
+	public JButton getBtnSalir() {
+		return btnSalir;
+	}
+
+	public void setBtnSalir(JButton btnSalir) {
+		this.btnSalir = btnSalir;
+	}
+
+	public JButton getBtnLefth() {
+		return btnLefth;
+	}
+
+	public void setBtnLefth(JButton btnLefth) {
+		this.btnLefth = btnLefth;
+	}
+
+	public JButton getBtnUp() {
+		return btnUp;
+	}
+
+	public void setBtnUp(JButton btnUp) {
+		this.btnUp = btnUp;
+	}
+
+	public JButton getBtnRigth() {
+		return btnRigth;
+	}
+
+	public void setBtnRigth(JButton btnRigth) {
+		this.btnRigth = btnRigth;
+	}
+
+	public JButton getBtnDown() {
+		return btnDown;
+	}
+
+	public void setBtnDown(JButton btnDown) {
+		this.btnDown = btnDown;
+	}
+
+	public AreaDibujo getAreaDibujo() {
+		return areaDibujo;
+	}
+
+	public void setAreaDibujo(AreaDibujo areaDibujo) {
+		this.areaDibujo = areaDibujo;
+	}
 	
 }
