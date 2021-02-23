@@ -57,7 +57,7 @@ function loginAlumno($dni, $pass){
 //====================================================================
 function getNoticias(){
   $conex = conectarBD();
-  $stid = oci_parse($conex, "SELECT * FROM NOTICIA ORDER BY FECHA DESC");
+  $stid = oci_parse($conex, "SELECT * FROM NOTICIA ORDER BY FECHA DESC FETCH FIRST 6 ROWS ONLY");
   oci_execute($stid);
   $noticiasArray = array();
   while ($row = oci_fetch_array($stid)) {
@@ -66,35 +66,69 @@ function getNoticias(){
       "titulo" => $row[1],
       "cuerpo" => $row[2],
       "profesor" => $row[3],
-      "fecha" => $row[4],
-      "imagen" => $row[5]
+      "resumen" => $row[4],
+      "fecha" => $row[5]
     );
     $noticiasArray[] = $noticia;
   }
   oci_free_statement($stid);
   return $noticiasArray;
-
 }//FIN FUNCION getNoticias
 //====================================================================
-function getNotasByUser($user)
-{
+function getNoticiaById($id){
+  $conex = conectarBD();
+  $stid = oci_parse($conex, "SELECT * FROM NOTICIA WHERE ID_NOTICIA = :id");
+  oci_bind_by_name($stid, ":id", $id);
+  oci_execute($stid);
+  $noticiasArray = array();
+  if ($row = oci_fetch_array($stid)) {
+    $noticia = array(
+      "id" => $row[0],
+      "titulo" => $row[1],
+      "cuerpo" => $row[2],
+      "profesor" => $row[3],
+      "resumen" => $row[4],
+      "fecha" => $row[5]
+    );
+    $noticiasArray[] = $noticia;
+  }
+  oci_free_statement($stid);
+  return $noticiasArray;
+}//FIN FUNCION getNoticiaById
+//====================================================================
+function getNotasByUser($user){
   $conex = conectarBD();
   $stid = oci_parse($conex, "SELECT ASIGNATURA.NOMBRE, MATRICULA.NOTA FROM MATRICULA INNER JOIN ASIGNATURA ON ASIGNATURA.ID_ASIGNATURA = MATRICULA.ASIGNATURA WHERE MATRICULA.ALUMNO =:usuario");
   
   oci_bind_by_name($stid, ":usuario", $user);
   oci_execute($stid);
 
-  $notas = array();
-  if ($row = oci_fetch_array($stid)) {
-    $notas = array(
-      "nombre" => $row[0],
+  $notasArray = array();
+  while ($row = oci_fetch_array($stid)) {
+    $nota = array(
       "nota" => $row[1]
     );
+    $notasArray[]=$nota;
   }
-  var_dump($notas);
   oci_free_statement($stid);
-  return $notas;
+  return $notasArray;
 
 }//FIN FUNCION getNotasByUser
+//====================================================================
+//====================================================================
+function getCursos(){
+  $conex = conectarBD();
+  $stid = oci_parse($conex, "SELECT nombre.nombre from nombre INNER JOIN curso ON curso.nombre = nombre.id_nombre");
+  oci_execute($stid);
+  $cursosArray = array();
+  while ($row = oci_fetch_array($stid)) {
+    $curso = array(
+      "nombre" => $row[0]
+    );
+    $cursosArray[] = $curso;
+  }
+  oci_free_statement($stid);
+  return $cursosArray;
+}//FIN FUNCION getCursos
 //====================================================================
 ?>

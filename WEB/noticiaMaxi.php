@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Centro de Estudios Almi</title>
     <link rel="stylesheet" href="css/comun.css">
-    <link rel="stylesheet" href="css/alumno.css">
+    <link rel="stylesheet" href="css/noticiaMaxi.css">
 
     <script src="js/funcionesJs.js"></script>
 
@@ -19,7 +19,7 @@
   <div id='menu'>
     <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" id="logo">
       <div id="menu-derecha">
-      <?php
+        <?php
         if ($_SESSION["tipoUser"] == 1) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
           echo "<a href='alumno.php' id='login'>".$_SESSION['user']."</a>";
@@ -51,45 +51,31 @@
         ?>
         <a href="contacto.php" id="nav">Contacto</a>
         <a href="infoAcademica.php" id="nav">Informacion Academica</a>
-        <a href="index.php" id="nav">Inicio</a>
+        <a href="index.php" id="nav" class="active">Inicio</a>
       </div>
   </div>
-    <?php
-    if ($_SESSION["tipoUser"] != 1) {
-        header("location: index.php");
-    }else {
-    ?>
-    <div id="cuerpo">
-        <div id="infoAlumno">
+
+  <div id="cuerpo">
+
+    <div id="noticias">
+      <h1>NoticiAlmi</h1>
+
         <?php
-        $notas = getNotasByUser($_SESSION['idUser']);
-        echo "<img src='source/images/usuario.svg' alt='Imagen Usuario' id='imgUser'>";
-        echo "<a href='' id='cambiarPass'>Cambiar Contraseña</a>";
-        echo "<div class= 'floatclear'></div>";
-        echo "<h1>".$_SESSION['nombre']."</h1>";
-        echo "<h1>".$_SESSION['apellidos']."</h1>";
-        echo "<h1>".$_SESSION['dni']."</h1>";
-        echo "<h1>".$_SESSION['fechaNac']."</h1>";
+          $noticia = getNoticiaById($_GET['id_noticia']);
 
-        echo "<div id='curso'>";
-        echo "<h1>NombreCurso</h1>";
-        for ($i=0; $i < sizeOf($notas); $i++) { 
-          echo "<div id='asignatura'>";
-          echo "<h2>".$notas[$i]['nombre']."</h1>";
-          echo "<h3>".$notas[$i]['nota']."</h2>";
-          echo "</div>";
-        }
+          for ($i=0; $i < sizeOf($noticia); $i++) { 
+            echo "<div class='noticia'>";
+            echo "<h2>".$noticia[$i]['titulo']."</h2>";
+            echo "<p>".$noticia[$i]['cuerpo']."</p>";
+            echo "<h2>".$noticia[$i]['fecha']."</h2>";
+            echo "</div>";
+          }
 
-        echo "</div>";
-        ?>          
-        </div>
+
+        ?>
     </div>
-    <?php
-    }//FINAL DEL ELSE EN CASO DE NO HABER SESION INICIADA
-    ?>
 
-
-
+  </div>
   <div id="pie">
     <div class="redes">
       <p>Nuestras Redes Sociales</p>

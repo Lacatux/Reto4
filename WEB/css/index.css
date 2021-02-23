@@ -11,6 +11,7 @@ p{
 
 }
 #noticias .noticia{
+  word-wrap: break-word;
   margin-left: 2.5%;
   padding: 1%;
   padding-left: 1%;
@@ -22,9 +23,15 @@ p{
   border-radius: 25px;
   margin-top: 5px;
   margin-bottom: 5px;
-  min-height: 200px;
+  min-height: 224.667px;
 }
-
+#noticias a{
+  float: right;
+  text-align: center;
+  color: #322c79;
+  text-decoration: none;
+  font-weight: bolder;
+}
 #informacion .info{
   border-bottom: #322c79 3px solid;
   border-radius: 10px;

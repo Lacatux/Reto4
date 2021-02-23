@@ -10,7 +10,7 @@ p{
   color: #59576d;
 
 }
-#noticias .noticia{
+#infoAcademica .curso{
   margin-left: 2.5%;
   padding: 1%;
   padding-left: 1%;
@@ -23,22 +23,13 @@ p{
   margin-top: 5px;
   margin-bottom: 5px;
 }
-
-#informacion .info{
-  border-bottom: #322c79 3px solid;
-  border-radius: 10px;
-  width: 45%;
-  padding-top: 10px;
-  margin-left: 2.5%;
-  background-color: #f1f1f1;
-  margin-top: 5px;
-  padding: 10px;
-}
-.img{
-  position: relative;
-  z-index: -3;
+#infoAcademica a{
   float: right;
-  width: 500px;
-  padding-right: 10%;
-  padding-top: 45px;
+  color: #322c79;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  font-weight: bold;
 }

@@ -39,7 +39,7 @@
           echo "<div class='dropdown-content' id='myDropdown'>";
           ?>
           <form id="formLogin" action="php/login.php" method="post">
-            <label for="dni">DNI</label>
+            <label for="dni">DNI</label><br>
             <input type="text" name="dni"><br>
             <label for="pass">Contraseña</label>
             <input type="password" name="pass"><br><br>
@@ -51,7 +51,7 @@
         ?>
         <a href="contacto.php" id="nav">Contacto</a>
         <a href="infoAcademica.php" id="nav">Informacion Academica</a>
-        <a href="index.php" id="nav">Inicio</a>
+        <a href="index.php" id="nav" class="active">Inicio</a>
       </div>
   </div>
 
@@ -80,21 +80,22 @@
 
     <div id="noticias">
       <h1>NoticiAlmi</h1>
-
         <?php
           $noticia = getNoticias();
 
           for ($i=0; $i < sizeOf($noticia); $i++) { 
             echo "<div class='noticia'>";
             echo "<h2>".$noticia[$i]['titulo']."</h2>";
-            echo "<p>".$noticia[$i]['cuerpo']."</p>";
+            echo "<p>".$noticia[$i]['resumen']."</p>";
+            echo "<h2>".$noticia[$i]['fecha']."</h2>";
+            echo "<a href='noticiaMaxi.php?id_noticia=".$noticia[$i]['id']."'>Leer Mas</a>";
             echo "</div>";
           }
 
 
         ?>
     </div>
-
+          
   </div>
   <div id="pie">
     <div class="redes">

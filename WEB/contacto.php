@@ -19,15 +19,10 @@
   <div id='menu'>
     <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" id="logo">
       <div id="menu-derecha">
-        <?php
+      <?php
         if ($_SESSION["tipoUser"] == 1) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
-          echo "<div id='desplegable'>";
-          echo "<button id='dropbtn' onclick='myFunction()'>".$_SESSION["nombre"]."";
-          echo "</button>";
-          echo "<div class='dropdown-content' id='myDropdown'>";
-          echo "<a href='notasAlumno' id='enlace'>Notas</a>";
-          echo "</div></div>";
+          echo "<a href='alumno.php' id='login'>".$_SESSION['user']."</a>";
         }elseif ($_SESSION["tipoUser"] == 2) {
           echo "<a href='php/cerrarSesion.php' id='login'>Cerrar Sesion</a>";
           echo "<div id='desplegable'>";
@@ -44,7 +39,7 @@
           echo "<div class='dropdown-content' id='myDropdown'>";
           ?>
           <form id="formLogin" action="php/login.php" method="post">
-            <label for="dni">DNI</label>
+            <label for="dni">DNI</label><br>
             <input type="text" name="dni"><br>
             <label for="pass">Contraseña</label>
             <input type="password" name="pass"><br><br>
@@ -85,7 +80,7 @@
           <label for="">Asunto *</label><br>
           <input type="text" name="asunto"><br><br>
           <label for="">Mensaje *</label><br>
-          <textarea name="mensaje" rows="8" cols="50"></textarea><br><br>
+          <textarea name="mensaje" rows="8" cols="50" style="width: 96%;"></textarea>
           <button type="button" name="enviar">Enviar</button>
         </form>
         <p>(* Campo Obligatorio)</p>
