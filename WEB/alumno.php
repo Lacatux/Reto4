@@ -62,7 +62,7 @@
     <div id="cuerpo">
         <div id="infoAlumno">
         <?php
-        $notas = getNotasByUser($_SESSION['idUser']);
+        $cursos = getCursosAlumno($_SESSION['idUser']);
         echo "<img src='source/images/usuario.svg' alt='Imagen Usuario' id='imgUser'>";
         echo "<a href='' id='cambiarPass'>Cambiar Contraseña</a>";
         echo "<div class= 'floatclear'></div>";
@@ -71,16 +71,21 @@
         echo "<h1>".$_SESSION['dni']."</h1>";
         echo "<h1>".$_SESSION['fechaNac']."</h1>";
 
-        echo "<div id='curso'>";
-        echo "<h1>NombreCurso</h1>";
-        for ($i=0; $i < sizeOf($notas); $i++) { 
-          echo "<div id='asignatura'>";
-          echo "<h2>".$notas[$i]['nombre']."</h1>";
-          echo "<h3>".$notas[$i]['nota']."</h2>";
+        for ($i=0; $i < sizeOf($cursos); $i++) { 
+          echo "<div id='curso'>";
+
+          echo "<h1>".$cursos[$i]['curso']."</h1>";
+          $notas = getNotasByUserCurso($_SESSION['idUser'], $cursos[$i]['curso']);
+          for ($j=0; $j < sizeOf($notas); $j++) { 
+            echo "<div id='asignatura'>";
+            echo "<h2>".$notas[$j]['asignatura']."</h2>";
+            echo "<h3>".$notas[$j]['nota']."</h2>";
+            echo "</div>";
+          }
           echo "</div>";
+
         }
 
-        echo "</div>";
         ?>          
         </div>
     </div>

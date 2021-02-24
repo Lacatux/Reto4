@@ -6,14 +6,15 @@
 }
 #cambiarPass{
 float: left;
-color: rgb(50, 44, 124);
 text-align: center;
 padding: 12px;
 text-decoration: none;
 font-size: 18px;
 line-height: 25px;
-border-radius: 4px;
+border-radius: 20px;
 float: right;
+background-color: #e13838;
+color: black;
 }
 #infoAlumno{
 margin-left: 25%;
@@ -37,6 +38,7 @@ h1{
   border: 3px black solid;
   text-align: center;
   border-radius: 25px;
+  margin-top: 5px;
 }
 #asignatura{
   padding: 5px;
@@ -45,7 +47,7 @@ h1{
   text-align: center;
   margin-top: 1%;
   height: 55px;
-  width: 400px;
+  width: 53%;
   margin-left: 24%;
 }
 #asignatura h2{

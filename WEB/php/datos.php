@@ -57,7 +57,7 @@ function loginAlumno($dni, $pass){
 //====================================================================
 function getNoticias(){
   $conex = conectarBD();
-  $stid = oci_parse($conex, "SELECT * FROM NOTICIA ORDER BY FECHA DESC FETCH FIRST 6 ROWS ONLY");
+  $stid = oci_parse($conex, "SELECT * FROM NOTICIA ORDER BY FECHA DESC FETCH FIRST 3 ROWS ONLY");
   oci_execute($stid);
   $noticiasArray = array();
   while ($row = oci_fetch_array($stid)) {
@@ -96,25 +96,58 @@ function getNoticiaById($id){
   return $noticiasArray;
 }//FIN FUNCION getNoticiaById
 //====================================================================
-function getNotasByUser($user){
+function getCursosAlumno($user){
   $conex = conectarBD();
-  $stid = oci_parse($conex, "SELECT ASIGNATURA.NOMBRE, MATRICULA.NOTA FROM MATRICULA INNER JOIN ASIGNATURA ON ASIGNATURA.ID_ASIGNATURA = MATRICULA.ASIGNATURA WHERE MATRICULA.ALUMNO =:usuario");
+  $stid = oci_parse($conex, "SELECT NOMBRE.NOMBRE FROM MATRICULA INNER JOIN ASIGNATURA ON ASIGNATURA.ID_ASIGNATURA = MATRICULA.ASIGNATURA INNER JOIN CURSO ON ASIGNATURA.CURSO = CURSO.ID_CURSO INNER JOIN NOMBRE ON CURSO.NOMBRE = NOMBRE.ID_NOMBRE WHERE MATRICULA.ALUMNO = :usuario");
   
   oci_bind_by_name($stid, ":usuario", $user);
   oci_execute($stid);
 
-  $notasArray = array();
+  $cursosArray = array();
   while ($row = oci_fetch_array($stid)) {
+    $curso = array(
+      "curso" => $row[0]
+    );
+    if (sizeOf($cursosArray)!=0) {
+      for ($i=0; $i < sizeOf($cursosArray); $i++) { 
+        if ($cursosArray[$i]['curso']!=$curso['curso']) {
+          $cursosArray[]=$curso;
+        }
+      }
+    }else {
+      $cursosArray[]=$curso;
+    }
+    
+        
+    }
+  
+  oci_free_statement($stid);
+  return $cursosArray;
+}//FIN FUNCION getNotasByUser
+//====================================================================
+function getNotasByUserCurso($user, $curso){
+  $conex = conectarBD();
+  $stid = oci_parse($conex, "SELECT NOMBRE.NOMBRE, ASIGNATURA.NOMBRE, MATRICULA.NOTA FROM MATRICULA
+  INNER JOIN ASIGNATURA ON ASIGNATURA.ID_ASIGNATURA = MATRICULA.ASIGNATURA
+  INNER JOIN CURSO ON ASIGNATURA.CURSO = CURSO.ID_CURSO
+  INNER JOIN NOMBRE ON CURSO.NOMBRE = NOMBRE.ID_NOMBRE
+  WHERE MATRICULA.ALUMNO = :usuario AND NOMBRE.NOMBRE = :curso ");
+  oci_bind_by_name($stid, ":usuario", $user);
+  oci_bind_by_name($stid, ":curso", $curso);
+  oci_execute($stid);
+  $notasArray = array();
+  while($row = oci_fetch_array($stid)){
     $nota = array(
-      "nota" => $row[1]
+      "curso" => $row[0],
+      "asignatura" => $row[1],
+      "nota" => $row[2]
     );
     $notasArray[]=$nota;
   }
+
   oci_free_statement($stid);
   return $notasArray;
-
-}//FIN FUNCION getNotasByUser
-//====================================================================
+}//FIN FUNCION getNotasByUserCurso
 //====================================================================
 function getCursos(){
   $conex = conectarBD();
@@ -130,5 +163,13 @@ function getCursos(){
   oci_free_statement($stid);
   return $cursosArray;
 }//FIN FUNCION getCursos
+//====================================================================
+function cambiarPassAlumno($user, $pass){
+  $conex = conectarBD();
+  $stid = oci_parse($conex, "UPDATE ALUMNO SET CONTRASENA = :pass WHERE ID_ALUMNO = :user ");
+  oci_bind_by_name($stid, ":user", $user);
+  oci_bind_by_name($stid, ":pass", $pass);
+  oci_execute($stid);
+}//FIN FUNCION cambiarPassAlumno
 //====================================================================
 ?>
