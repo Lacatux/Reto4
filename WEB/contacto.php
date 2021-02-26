@@ -64,7 +64,7 @@
         <p>Avda Lehendakari Aguirre, 29-1º (Deusto) Junto a la boca de metro</p>
         <p>48014 Bilbao (Bizkaia)</p>
         <p>Teléfono: 94 410 38 37</p>
-        <p>Horario: 8:00 – 20:00 (LUNES A VIERNES)</p>
+        <p>Horario: 8:00 – 21:00 (LUNES A VIERNES)</p>
         <p>E-mail: c.estudios.almi@gmail.com</p>
       </div>
       <div class="info">

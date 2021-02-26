@@ -6,7 +6,6 @@
 
   $tipoUser = 0;
 
-  var_dump($userAlumno);
 
   if (sizeOf($userProfesor)==0) {
     if (sizeOf($userAlumno)==0) {
@@ -16,7 +15,7 @@
 
     }else {
       $tipoUser = 1;
-      echo "Usuario Alumno";
+      echo "Usuario Alumno ";
       $_SESSION["user"] = $userAlumno['nombre'];
       $_SESSION["idUser"] = $userAlumno['id'];
       $_SESSION["nombre"] = $userAlumno['nombre'];

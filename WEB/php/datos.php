@@ -48,7 +48,7 @@ function loginAlumno($dni, $pass){
       "apellidos" => $row[2],
       "dni" => $row[3],
       "fechaNac" => $row[4],
-      "pass" => $row[5]
+      "pass" => $row[5],
     );
   }
   oci_free_statement($stid);
@@ -164,12 +164,18 @@ function getCursos(){
   return $cursosArray;
 }//FIN FUNCION getCursos
 //====================================================================
-function cambiarPassAlumno($user, $pass){
+function cambiarPassAlumno($user, $old, $new){
   $conex = conectarBD();
-  $stid = oci_parse($conex, "UPDATE ALUMNO SET CONTRASENA = :pass WHERE ID_ALUMNO = :user ");
-  oci_bind_by_name($stid, ":user", $user);
-  oci_bind_by_name($stid, ":pass", $pass);
-  oci_execute($stid);
+  $stid = oci_parse($conex, "UPDATE alumno SET contrasena = :new WHERE ID_ALUMNO = :usuario AND contrasena = :old");
+  
+  oci_bind_by_name($stid, ':new', $new);
+  oci_bind_by_name($stid, ':usuario', $user);
+  oci_bind_by_name($stid, ':old', $old);
+
+  
+  $resultado = oci_execute($stid);
+  oci_free_statement($stid);
+  return $resultado;
 }//FIN FUNCION cambiarPassAlumno
 //====================================================================
 ?>

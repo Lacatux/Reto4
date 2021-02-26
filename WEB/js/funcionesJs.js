@@ -38,17 +38,23 @@ function scrollFunction() {
     }
 
     //esto debe estar aqui, si no rompe el resto
-    document.getElementById("desplegable").style.margin = "-15px 2px";
-    document.getElementById("desplegable").style.padding = '5px 5px';
-    document.getElementById("desplegable").style.height= '18px';
+    if (document.getElementById("myDropdown2")!== null) {
+      document.getElementById("myDropdown2").style.top = '45%';
+    }
 
-    document.getElementById("dropbtn").style.fontSize= '12px';
-    document.getElementById("dropbtn").style.padding = '7px';
-
-    document.getElementById("myDropdown").style.maxWidth = '74px';
-    document.getElementById("myDropdown").style.top = '92%';
-
-    document.getElementById("formLogin").style.right = '204px';
+    if (document.getElementById("desplegable")!==null) {
+      document.getElementById("desplegable").style.margin = "-15px 2px";
+      document.getElementById("desplegable").style.padding = '5px 5px';
+      document.getElementById("desplegable").style.height= '18px';
+  
+      document.getElementById("dropbtn").style.fontSize= '12px';
+      document.getElementById("dropbtn").style.padding = '7px';
+  
+      document.getElementById("myDropdown").style.maxWidth = '74px';
+      document.getElementById("myDropdown").style.top = '92%';
+  
+      document.getElementById("formLogin").style.right = '204px';
+    }
 
   } else {
     //MAXIMIZAR
@@ -90,22 +96,29 @@ function scrollFunction() {
 
     //esto debe estar aqui, si no rompe el resto
     
-    document.getElementById("desplegable").style.margin = "0px 1px";
-    document.getElementById("desplegable").style.padding = '12px 12px';
-    document.getElementById("desplegable").style.height= '25px';
-
-    document.getElementById("dropbtn").style.fontSize= '18px';
-    document.getElementById("dropbtn").style.padding= '3px';
-
-    document.getElementById("myDropdown").style.maxWidth = '100px';
-    document.getElementById("myDropdown").style.top = '63%';
-    
-    document.getElementById("formLogin").style.right = '183px';
-
+    if (document.getElementById("myDropdown2")!==null) {
+      document.getElementById("myDropdown2").style.top = '39%';
+    }
+    if (document.getElementById("desplegable")!==null) {
+      document.getElementById("desplegable").style.margin = "0px 1px";
+      document.getElementById("desplegable").style.padding = '12px 12px';
+      document.getElementById("desplegable").style.height= '25px';
+  
+      document.getElementById("dropbtn").style.fontSize= '18px';
+      document.getElementById("dropbtn").style.padding= '3px';
+  
+      document.getElementById("myDropdown").style.maxWidth = '100px';
+      document.getElementById("myDropdown").style.top = '63%';
+      
+      document.getElementById("formLogin").style.right = '183px';
+    }
   }
 }
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
+}
+function myFunction2() {
+  document.getElementById("myDropdown2").classList.toggle("show");
 }

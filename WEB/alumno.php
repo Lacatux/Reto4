@@ -64,7 +64,25 @@
         <?php
         $cursos = getCursosAlumno($_SESSION['idUser']);
         echo "<img src='source/images/usuario.svg' alt='Imagen Usuario' id='imgUser'>";
-        echo "<a href='' id='cambiarPass'>Cambiar Contraseña</a>";
+        echo "<div id='cambiaPass'>";
+        echo "<button id='cambiaPassBtn' onclick='myFunction2()'>Cambiar Contraseña";
+        echo "</button>";
+        echo "<div class='dropdown-content' id='myDropdown2'>";
+        ?>
+        <form id="formLogin" action="php/cambiaPass.php" method="post">
+          <label for="passOld">Contraseña Antigua</label><br>
+          <input type="password" name="passOld"><br>
+          <label for="passNew">Contraseña Nueva</label>
+          <input type="password" name="passNew"><br><br>
+          <?php
+          echo "<input type='hidden' name='idUser' value='".$_SESSION['idUser']."'>";
+          ?>
+          <input id="enviar" type="submit" value="Enviar"/>
+
+        </form>
+        <?php
+        echo "</div></div>";
+
         echo "<div class= 'floatclear'></div>";
         echo "<h1>".$_SESSION['nombre']."</h1>";
         echo "<h1>".$_SESSION['apellidos']."</h1>";
@@ -73,7 +91,6 @@
 
         for ($i=0; $i < sizeOf($cursos); $i++) { 
           echo "<div id='curso'>";
-
           echo "<h1>".$cursos[$i]['curso']."</h1>";
           $notas = getNotasByUserCurso($_SESSION['idUser'], $cursos[$i]['curso']);
           for ($j=0; $j < sizeOf($notas); $j++) { 
