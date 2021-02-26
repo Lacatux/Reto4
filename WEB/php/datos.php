@@ -2,7 +2,7 @@
 function conectarBD(){
   //DESCRIPCION DE LA BASE DE DATOS (IP, PUERTO...)
   $db = "(DESCRIPTION=(ADDRESS_LIST = (ADDRESS = (PROTOCOL =TCP)
-  (HOST = 192.168.6.172)(PORT = 1539)))(CONNECT_DATA=(SID=XE)))";
+  (HOST = 192.168.0.150)(PORT = 1539)))(CONNECT_DATA=(SID=XE)))";
   //INTENTO DE CONEXION DE LA BASE DE DATOS
   $conn = oci_connect('basegenerica', 'Nombre_Generico2020', $db);
   if (!$conn) {
@@ -105,21 +105,24 @@ function getCursosAlumno($user){
 
   $cursosArray = array();
   while ($row = oci_fetch_array($stid)) {
+
     $curso = array(
       "curso" => $row[0]
     );
-    if (sizeOf($cursosArray)!=0) {
+    if (sizeOf($cursosArray)==0) {
+      $cursosArray[]=$curso;
+    }else {
+      $repetido = 0;
       for ($i=0; $i < sizeOf($cursosArray); $i++) { 
-        if ($cursosArray[$i]['curso']!=$curso['curso']) {
-          $cursosArray[]=$curso;
+        if ($cursosArray[$i]['curso']==$curso['curso']) {
+          $repetido = 1;
         }
       }
-    }else {
-      $cursosArray[]=$curso;
+      if ($repetido == 0) {
+        $cursosArray[]=$curso;
+      }
     }
-    
-        
-    }
+  }
   
   oci_free_statement($stid);
   return $cursosArray;
@@ -151,15 +154,34 @@ function getNotasByUserCurso($user, $curso){
 //====================================================================
 function getCursos(){
   $conex = conectarBD();
-  $stid = oci_parse($conex, "SELECT nombre.nombre from nombre INNER JOIN curso ON curso.nombre = nombre.id_nombre");
+  $stid = oci_parse($conex, "SELECT NOMBRE.NOMBRE FROM CURSO INNER JOIN NOMBRE ON curso.nombre = nombre.id_nombre");
+  
   oci_execute($stid);
+
   $cursosArray = array();
   while ($row = oci_fetch_array($stid)) {
+
     $curso = array(
-      "nombre" => $row[0]
+      "curso" => $row[0]
     );
-    $cursosArray[] = $curso;
+    if (sizeOf($cursosArray)==0) {
+      $cursosArray[]=$curso;
+    }else {
+      $repetido = 0;
+      for ($i=0; $i < sizeOf($cursosArray); $i++) { 
+        if ($cursosArray[$i]['curso']==$curso['curso']) {
+          $repetido = 1;
+        }
+      }
+      if ($repetido == 0) {
+        $cursosArray[]=$curso;
+      }
+    }
   }
+
+    
+
+  
   oci_free_statement($stid);
   return $cursosArray;
 }//FIN FUNCION getCursos
@@ -177,5 +199,25 @@ function cambiarPassAlumno($user, $old, $new){
   oci_free_statement($stid);
   return $resultado;
 }//FIN FUNCION cambiarPassAlumno
+//====================================================================
+function bajaNoticia($id){
+  $conex = conectarBD();
+  $stid = oci_parse($conex, "DELETE FROM NOTICIA WHERE ID_NOTICIA = :id ");
+  oci_bind_by_name($stid, ':id', $id);
+  oci_execute($stid);
+}//FIN FUNCION bajaNoticia
+//====================================================================
+function nuevaNoticia($titulo, $cuerpo, $profesor, $resumen, $fecha){
+  $conex = conectarBD();
+  $stid = oci_parse($conex, "INSERT INTO NOTICIA(titulo, cuerpo, profesor, resumen, fecha) VALUES ( :titulo , :cuerpo , :profesor , :resumen , :fecha )");
+  oci_bind_by_name($stid, ':titulo', $titulo);
+  oci_bind_by_name($stid, ':cuerpo', $cuerpo);
+  oci_bind_by_name($stid, ':profesor', $profesor);
+  oci_bind_by_name($stid, ':resumen', $resumen);
+  oci_bind_by_name($stid, ':fecha', $fecha);
+  $resultado = oci_execute($stid);
+
+  return $resultado;
+}//FIN FUNCION bajaNoticia
 //====================================================================
 ?>

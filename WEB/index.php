@@ -29,8 +29,7 @@
           echo "<button id='dropbtn' onclick='myFunction()'>".$_SESSION["nombre"]."";
           echo "</button>";
           echo "<div class='dropdown-content' id='myDropdown'>";
-          echo "<a href='#' id='enlace'>Buscador</a>";
-          echo "<a href='#' id='enlace'>Registro</a>";
+          echo "<a href='noticiaNueva.php' id='enlace'>Noticia Nueva</a>";
           echo "</div></div>";
         }else {
           echo "<div id='desplegable'>";
@@ -89,6 +88,7 @@
             echo "<p>".$noticia[$i]['resumen']."</p>";
             echo "<h2>".$noticia[$i]['fecha']."</h2>";
             echo "<a href='noticiaMaxi.php?id_noticia=".$noticia[$i]['id']."'>Leer Mas</a>";
+            echo "<a href='php/borrarNoticia.php?id_noticia=".$noticia[$i]['id']."' class='borrarNoticia' >Eliminar</a>";
             echo "</div>";
           }
 

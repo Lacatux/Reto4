@@ -29,8 +29,7 @@
           echo "<button id='dropbtn' onclick='myFunction()'>".$_SESSION["nombre"]."";
           echo "</button>";
           echo "<div class='dropdown-content' id='myDropdown'>";
-          echo "<a href='#' id='enlace'>Buscador</a>";
-          echo "<a href='#' id='enlace'>Registro</a>";
+          echo "<a href='noticiaNueva.php' id='enlace'>Noticia Nueva</a>";
           echo "</div></div>";
         }else {
           echo "<div id='desplegable'>";

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Centro de Estudios Almi</title>
     <link rel="stylesheet" href="css/comun.css">
-    <link rel="stylesheet" href="css/noticiaMaxi.css">
+    <link rel="stylesheet" href="css/noticiaNueva.css">
 
     <script src="js/funcionesJs.js"></script>
 
@@ -50,30 +50,35 @@
         ?>
         <a href="contacto.php" id="nav">Contacto</a>
         <a href="infoAcademica.php" id="nav">Informacion Academica</a>
-        <a href="index.php" id="nav" class="active">Inicio</a>
+        <a href="index.php" id="nav">Inicio</a>
       </div>
   </div>
 
   <div id="cuerpo">
 
+
     <div id="noticias">
-      <h1>NoticiAlmi</h1>
+      <h1>Crear Noticia Nueva</h1>
 
+      <form id="formNoticia" action="php/noticiaNueva.php" method="post">
+          <label for="titulo">Titulo</label><br>
+          <input type="text" name="titulo"><br><br>
+          <label for="cuerpo">Cuerpo</label><br>
+          <textarea class='textazo' name="cuerpo" rows="8" cols="50"></textarea><br><br>
         <?php
-          $noticia = getNoticiaById($_GET['id_noticia']);
-
-          for ($i=0; $i < sizeOf($noticia); $i++) { 
-            echo "<div class='noticia'>";
-            echo "<h2>".$noticia[$i]['titulo']."</h2>";
-            echo "<p>".$noticia[$i]['cuerpo']."</p>";
-            echo "<h2>".$noticia[$i]['fecha']."</h2>";
-            echo "</div>";
-          }
-
-
+            echo "<input type='hidden' name='idProfesor' value='".$_SESSION['idUser']."'>";
         ?>
-    </div>
+          <label for="resumen">Resumen</label><br>
+          <input type="text" name="resumen"><br><br>
+        <?php
+            $fecha = date('d-m-Y');
+            echo "<input id='txt' type='hidden' name='fecha' value='".$fecha."'><br>";
+        ?>
+          <input id="enviar" type="submit" value="Enviar"/>
 
+        </form>
+    </div>
+          
   </div>
   <div id="pie">
     <div class="redes">

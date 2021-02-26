@@ -70,10 +70,12 @@
   height: 48px;
 }
 #menu-derecha #myDropdown #enlace{
-  background-color: #FF733D;
-  border-right: solid 3px #FF543D;
-  border-bottom: solid 3px #FF543D;
+  background-color: #E13838;
+  border-right: solid 3px #641212;
+  border-bottom: solid 3px #641212;
 
+  width: 120px;
+  color: black;
 }
 #menu-derecha #desplegable #dropbtn {
   color: black;

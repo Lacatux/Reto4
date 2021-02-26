@@ -29,8 +29,7 @@
           echo "<button id='dropbtn' onclick='myFunction()'>".$_SESSION["nombre"]."";
           echo "</button>";
           echo "<div class='dropdown-content' id='myDropdown'>";
-          echo "<a href='#' id='enlace'>Buscador</a>";
-          echo "<a href='#' id='enlace'>Registro</a>";
+          echo "<a href='noticiaNueva.php' id='enlace'>Noticia Nueva</a>";
           echo "</div></div>";
         }else {
           echo "<div id='desplegable'>";
@@ -65,7 +64,7 @@
           $curso = getCursos();
           for ($i=0; $i < sizeOf($curso); $i++) { 
             echo "<div class='curso'>";
-            echo "<h2>".$curso[$i]['nombre']."</h2>";
+            echo "<h2>".$curso[$i]['curso']."</h2>";
             echo "<a href='#'>Mas Informacion</a>";
             echo "</div>";
           }
@@ -74,15 +73,7 @@
 
 
 
-        <?php
-          /*$noticia = getNoticias();
-          for ($i=0; $i < sizeOf($noticia); $i++) { 
-            echo "<div class='noticia'>";
-            echo "<h2>".$noticia[$i]['titulo']."</h2>";
-            echo "<p>".$noticia[$i]['cuerpo']."</p>";
-            echo "</div>";
-          }*/
-        ?>
+
     </div>
 
   </div>

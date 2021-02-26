@@ -25,6 +25,9 @@ p{
   margin-bottom: 5px;
   min-height: 224.667px;
 }
+#noticias .borrarNoticia{
+  float: left;
+}
 #noticias a{
   float: right;
   text-align: center;

@@ -30,7 +30,7 @@
     $tipoUser = 2;
     echo "Usuario Profesor";
     $_SESSION["user"] = $userProfesor['nombre'];
-    $_SESSION["idUser"] = $userProfesor['id_user'];
+    $_SESSION["idUser"] = $userProfesor['id'];
     $_SESSION["nombre"] = $userProfesor['nombre'];
     $_SESSION["tipoUser"] = $tipoUser;
     header("location: ../index.php");
