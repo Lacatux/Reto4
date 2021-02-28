@@ -23,6 +23,7 @@
       $_SESSION["apellidos"] = $userAlumno['apellidos'];
       $_SESSION["dni"] = $userAlumno['dni'];
       $_SESSION["fechaNac"] = $userAlumno['fechaNac'];
+      $_SESSION["imagen"] = $userAlumno['imagen'];
       $_SESSION["tipoUser"] = $tipoUser;
       header("location: ../index.php");
 

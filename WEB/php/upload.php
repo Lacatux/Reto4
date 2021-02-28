@@ -1,7 +1,8 @@
 <?php
+  include "datos.php";
+
 if (isset($_POST['submit'])) {
   $file = $_FILES['file'];
-  var_dump($file);
   $fileName = $_FILES['file']['name'];
   $fileTmpName = $_FILES['file']['tmp_name'];
   $fileSize = $_FILES['file']['size'];
@@ -16,19 +17,18 @@ if (isset($_POST['submit'])) {
   if (in_array($fileActualExt, $allowed)) {
     if ($fileError === 0) {
       if ($fileSize < 100000) {
-        $fileNameNew = uniqid('', true).".".$fileActualExt;
 
-        $fileDestination = 'uploads/'.$fileNameNew;
-
+        $fileNameNew = $_GET['dni_user'].".".$fileActualExt;
+        $fileDestination = '../source/fotos/'.$fileNameNew;
+        $fileDestination2 = 'source/fotos/'.$fileNameNew;
         $upload = move_uploaded_file($fileTmpName, $fileDestination);
-        var_dump($upload);
+
         if ($upload) {
-          echo "<br>YAY<br>!";
-          echo $fileNameNew;
+          cambiaImagenPerfil($_POST['dni'], $fileDestination2);
+          header("location: ../alumno.php");
         }else {
           echo "<br><br>Nope";
         }
-
       }else {
         echo "Your file is too big";
       }

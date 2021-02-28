@@ -49,6 +49,7 @@ function loginAlumno($dni, $pass){
       "dni" => $row[3],
       "fechaNac" => $row[4],
       "pass" => $row[5],
+      "imagen"=> $row[7]
     );
   }
   oci_free_statement($stid);
@@ -178,10 +179,6 @@ function getCursos(){
       }
     }
   }
-
-    
-
-  
   oci_free_statement($stid);
   return $cursosArray;
 }//FIN FUNCION getCursos
@@ -205,6 +202,7 @@ function bajaNoticia($id){
   $stid = oci_parse($conex, "DELETE FROM NOTICIA WHERE ID_NOTICIA = :id ");
   oci_bind_by_name($stid, ':id', $id);
   oci_execute($stid);
+  oci_free_statement($stid);
 }//FIN FUNCION bajaNoticia
 //====================================================================
 function nuevaNoticia($titulo, $cuerpo, $profesor, $resumen, $fecha){
@@ -216,8 +214,20 @@ function nuevaNoticia($titulo, $cuerpo, $profesor, $resumen, $fecha){
   oci_bind_by_name($stid, ':resumen', $resumen);
   oci_bind_by_name($stid, ':fecha', $fecha);
   $resultado = oci_execute($stid);
-
+  oci_free_statement($stid);
   return $resultado;
 }//FIN FUNCION bajaNoticia
+//====================================================================
+function cambiaImagenPerfil($dni, $ruta){
+  var_dump($dni, $ruta);
+  $conex = conectarBD();
+  $stid = oci_parse($conex, "UPDATE ALUMNO SET IMAGEN = :ruta WHERE ALUMNO.DNI = :dni");
+  oci_bind_by_name($stid, ':ruta', $ruta);
+  oci_bind_by_name($stid, ':dni', $dni);
+  $resultado = oci_execute($stid);
+  var_dump($resultado);
+  oci_free_statement($stid);
+
+}//FIN FUNCION cambiaImagenPerfil
 //====================================================================
 ?>

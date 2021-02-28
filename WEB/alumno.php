@@ -62,7 +62,15 @@
         <div id="infoAlumno">
         <?php
         $cursos = getCursosAlumno($_SESSION['idUser']);
-        echo "<img src='source/images/usuario.svg' alt='Imagen Usuario' id='imgUser'>";
+        if ($_SESSION["imagen"]==null) {
+          echo "<img src='source/images/usuario.svg' alt='Imagen Usuario' id='imgUser'>";
+          echo "<div class= 'floatclear'></div>";
+
+        }else {
+          echo "<img src='".$_SESSION["imagen"]."' alt='Imagen Usuario' id='imgUser'>";
+          echo "<div class= 'floatclear'></div>";
+
+        }
         echo "<div id='cambiaPass'>";
         echo "<button id='cambiaPassBtn' onclick='myFunction2()'>Cambiar Contraseña";
         echo "</button>";
@@ -85,12 +93,11 @@
         echo "<button id='cambiaPassBtn' onclick='myFunction3()'>Cambiar Imagen";
         echo "</button>";
         echo "<div class='dropdown-content' id='myDropdown3'>";
-        ?>
-        <form id="formPass" action="php/upload.php" method="post" enctype="multipart/form-data">
-          <?php
+        
+          echo "<form id='formPass' action='php/upload.php?dni_user=".$_SESSION['dni']."' method='post' enctype='multipart/form-data'>";
           echo "<input type='file' name='file' id='fileToUpload'>";
 
-          echo "<br><br><input type='hidden' name='idUser' value='".$_SESSION['idUser']."'>";
+          echo "<br><br><input type='hidden' name='dni' value='".$_SESSION['dni']."'>";
           ?>
           <input id="enviar" type="submit" name="submit" value="Enviar"/>
         </form>
