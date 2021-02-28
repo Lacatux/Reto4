@@ -52,10 +52,22 @@
         <a href="infoAcademica.php" id="nav">Informacion Academica</a>
         <a href="index.php" id="nav" class="active">Inicio</a>
       </div>
+
+
   </div>
 
   <div id="cuerpo">
+
+      <?php
+        if (isset($_SESSION["error"])) {
+           echo "<div id='error'>" ;
+           echo "<h2>".$_SESSION["error"]."</h2>";
+           echo "</div>";
+        }
+        unset($_SESSION["error"]);
+      ?>
     <div id="informacion">
+    
       <h1>InformAlmi</h1>
       <img src="source/images/AlmiLogo.png" alt="Logo Centro de Estudios Almi" class="img">
 
@@ -88,7 +100,9 @@
             echo "<p>".$noticia[$i]['resumen']."</p>";
             echo "<h2>".$noticia[$i]['fecha']."</h2>";
             echo "<a href='noticiaMaxi.php?id_noticia=".$noticia[$i]['id']."'>Leer Mas</a>";
-            echo "<a href='php/borrarNoticia.php?id_noticia=".$noticia[$i]['id']."' class='borrarNoticia' >Eliminar</a>";
+            if ($_SESSION["tipoUser"] == 2) {
+              echo "<a href='php/borrarNoticia.php?id_noticia=".$noticia[$i]['id']."' class='borrarNoticia' >Eliminar</a>";
+            }
             echo "</div>";
           }
 

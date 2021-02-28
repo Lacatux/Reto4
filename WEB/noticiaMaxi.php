@@ -64,13 +64,14 @@
 
           for ($i=0; $i < sizeOf($noticia); $i++) { 
             echo "<div class='noticia'>";
+            echo "<a href='index.php'><img src='source/images/flechaRegreso.png' alt='Flecha de Regreso'></a><br><br>";
+
             echo "<h2>".$noticia[$i]['titulo']."</h2>";
             echo "<p>".$noticia[$i]['cuerpo']."</p>";
             echo "<h2>".$noticia[$i]['fecha']."</h2>";
+
             echo "</div>";
           }
-
-
         ?>
     </div>
 

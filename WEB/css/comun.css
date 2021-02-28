@@ -170,3 +170,14 @@ button{
   border-radius: 5%;
   width: 247px;
 }
+#error{
+  background-color: #e13838;
+  border-radius: 50px;
+  width: 35%;
+  margin-left: 33%;
+}
+#error h2{
+  color: black;
+  font-weight: initial;
+
+}

@@ -41,6 +41,9 @@ function scrollFunction() {
     if (document.getElementById("myDropdown2")!== null) {
       document.getElementById("myDropdown2").style.top = '45%';
     }
+    if (document.getElementById("myDropdown3")!== null) {
+      document.getElementById("myDropdown3").style.top = '45%';
+    }
 
     if (document.getElementById("desplegable")!==null) {
       document.getElementById("desplegable").style.margin = "-15px 2px";
@@ -99,6 +102,9 @@ function scrollFunction() {
     if (document.getElementById("myDropdown2")!==null) {
       document.getElementById("myDropdown2").style.top = '39%';
     }
+    if (document.getElementById("myDropdown3")!==null) {
+      document.getElementById("myDropdown3").style.top = '39%';
+    }
     if (document.getElementById("desplegable")!==null) {
       document.getElementById("desplegable").style.margin = "0px 1px";
       document.getElementById("desplegable").style.padding = '12px 12px';
@@ -121,4 +127,7 @@ function myFunction() {
 }
 function myFunction2() {
   document.getElementById("myDropdown2").classList.toggle("show");
+}
+function myFunction3() {
+  document.getElementById("myDropdown3").classList.toggle("show");
 }

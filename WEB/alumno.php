@@ -77,10 +77,27 @@
           echo "<input type='hidden' name='idUser' value='".$_SESSION['idUser']."'>";
           ?>
           <input id="enviar" type="submit" value="Enviar"/>
-
         </form>
         <?php
         echo "</div></div>";
+
+        echo "<div id='cambiaPass'>";
+        echo "<button id='cambiaPassBtn' onclick='myFunction3()'>Cambiar Imagen";
+        echo "</button>";
+        echo "<div class='dropdown-content' id='myDropdown3'>";
+        ?>
+        <form id="formPass" action="php/upload.php" method="post" enctype="multipart/form-data">
+          <?php
+          echo "<input type='file' name='file' id='fileToUpload'>";
+
+          echo "<br><br><input type='hidden' name='idUser' value='".$_SESSION['idUser']."'>";
+          ?>
+          <input id="enviar" type="submit" name="submit" value="Enviar"/>
+        </form>
+        <?php
+        echo "</div></div>";
+
+
 
         echo "<div class= 'floatclear'></div>";
         echo "<h1>".$_SESSION['nombre']."</h1>";

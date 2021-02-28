@@ -3,6 +3,7 @@
   include "datos.php";
   $userProfesor = loginProfesor($_POST["dni"], $_POST["pass"]);
   $userAlumno = loginAlumno($_POST["dni"], $_POST["pass"]);
+  $error = "Usuario y/o Contraseña no valido";
 
   $tipoUser = 0;
 
@@ -10,7 +11,7 @@
   if (sizeOf($userProfesor)==0) {
     if (sizeOf($userAlumno)==0) {
       $tipoUser = 0;
-      echo "Usuario No Existente";
+      $_SESSION["error"] = $error;
       header("location: ../index.php");
 
     }else {
