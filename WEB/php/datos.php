@@ -227,6 +227,7 @@ function cambiaImagenPerfil($dni, $ruta){
   $resultado = oci_execute($stid);
   var_dump($resultado);
   oci_free_statement($stid);
+  $_SESSION["imagenNew"]=$ruta;
 
 }//FIN FUNCION cambiaImagenPerfil
 //====================================================================

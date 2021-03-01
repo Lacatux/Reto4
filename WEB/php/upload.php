@@ -25,6 +25,7 @@ if (isset($_POST['submit'])) {
 
         if ($upload) {
           cambiaImagenPerfil($_POST['dni'], $fileDestination2);
+          sleep(7);
           header("location: ../alumno.php");
         }else {
           echo "<br><br>Nope";
