@@ -25,6 +25,7 @@
       $_SESSION["fechaNac"] = $userAlumno['fechaNac'];
       $_SESSION["imagen"] = $userAlumno['imagen'];
       $_SESSION["tipoUser"] = $tipoUser;
+      var_dump($userAlumno['imagen']);
       header("location: ../index.php");
 
     }

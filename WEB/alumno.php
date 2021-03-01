@@ -64,15 +64,15 @@
         <div id="infoAlumno">
         <?php
         $cursos = getCursosAlumno($_SESSION['idUser']);
-        if ($_SESSION["imagen"]==null) {
+        /*if ($_SESSION["imagen"]==null) {
           echo "<img src='source/images/usuario.svg' alt='Imagen Usuario' id='imgUser'>";
           echo "<div class= 'floatclear'></div>";
 
-        }else {
+        }else {*/
           echo "<img src='".$_SESSION["imagen"]."' alt='Imagen Usuario' id='imgUser'>";
           echo "<div class= 'floatclear'></div>";
 
-        }
+       // }
         echo "<div id='cambiaPass'>";
         echo "<button id='cambiaPassBtn' onclick='myFunction2()'>Cambiar Contraseña";
         echo "</button>";

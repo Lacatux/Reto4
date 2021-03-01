@@ -49,7 +49,7 @@ function loginAlumno($dni, $pass){
       "dni" => $row[3],
       "fechaNac" => $row[4],
       "pass" => $row[5],
-      "imagen"=> $row[7]
+      "imagen"=> $row[6]
     );
   }
   oci_free_statement($stid);
@@ -227,7 +227,6 @@ function cambiaImagenPerfil($dni, $ruta){
   $resultado = oci_execute($stid);
   var_dump($resultado);
   oci_free_statement($stid);
-  $_SESSION["imagenNew"]=$ruta;
 
 }//FIN FUNCION cambiaImagenPerfil
 //====================================================================
