@@ -53,3 +53,12 @@ p{
   padding-right: 10%;
   padding-top: 45px;
 }
+#error{
+  position:relative;
+  animation-name: error;
+  animation-duration: 2s;
+}
+@keyframes error {
+  0%   {top:-100px}
+  100% {top:0px;}
+}
