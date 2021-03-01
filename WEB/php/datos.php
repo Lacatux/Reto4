@@ -2,7 +2,7 @@
 function conectarBD(){
   //DESCRIPCION DE LA BASE DE DATOS (IP, PUERTO...)
   $db = "(DESCRIPTION=(ADDRESS_LIST = (ADDRESS = (PROTOCOL =TCP)
-  (HOST = 192.168.6.172)(PORT = 1539)))(CONNECT_DATA=(SID=XE)))";
+  (HOST = 192.168.6.172)(PORT = 1521)))(CONNECT_DATA=(SID=ORCLCDB)))";
   //INTENTO DE CONEXION DE LA BASE DE DATOS
   $conn = oci_connect('basegenerica', 'Nombre_Generico2020', $db);
   if (!$conn) {

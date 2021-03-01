@@ -11,6 +11,8 @@
     <?php
       session_start();
       include("php/datos.php");
+      
+
     ?>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -89,12 +91,12 @@
         <?php
         echo "</div></div>";
 
-        echo "<div id='cambiaPass'>";
-        echo "<button id='cambiaPassBtn' onclick='myFunction3()'>Cambiar Imagen";
+        echo "<div id='cambiaImg'>";
+        echo "<button id='cambiaImgBtn' onclick='myFunction3()'>Cambiar Imagen";
         echo "</button>";
         echo "<div class='dropdown-content' id='myDropdown3'>";
         
-          echo "<form id='formPass' action='php/upload.php?dni_user=".$_SESSION['dni']."' method='post' enctype='multipart/form-data'>";
+          echo "<form id='formImg' action='php/upload.php?dni_user=".$_SESSION['dni']."' method='post' enctype='multipart/form-data'>";
           echo "<input type='file' name='file' id='fileToUpload'>";
 
           echo "<br><br><input type='hidden' name='dni' value='".$_SESSION['dni']."'>";
@@ -107,12 +109,14 @@
 
 
         echo "<div class= 'floatclear'></div>";
-        echo "<h1>".$_SESSION['nombre']."</h1>";
+        echo "<h1 style='margin-top: 220px;'>".$_SESSION['nombre']."</h1>";
         echo "<h1>".$_SESSION['apellidos']."</h1>";
         echo "<h1>".$_SESSION['dni']."</h1>";
         echo "<h1>".$_SESSION['fechaNac']."</h1>";
 
         for ($i=0; $i < sizeOf($cursos); $i++) { 
+          echo "<div class= 'floatclear'></div>";
+
           echo "<div id='curso'>";
           echo "<h1>".$cursos[$i]['curso']."</h1>";
           $notas = getNotasByUserCurso($_SESSION['idUser'], $cursos[$i]['curso']);

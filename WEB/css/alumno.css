@@ -1,9 +1,9 @@
 #imgUser{
-  width: 150px;  
+  width: 240px;  
   float: left;
-  padding-left: 10%;
-  padding-right: 50px;
-  margin-bottom: 15%;
+  height: 200px;
+  border: solid 4px #312c7c;
+  border-radius: 50px;
 }
 #cambiarPass{
 float: left;
@@ -33,7 +33,6 @@ min-height: 200px;
 }
 h1{
   color: #332e73;
-  margin-top: 5%;
 }
 #curso{
   padding: 1%;
@@ -133,4 +132,40 @@ h1{
 #cuerpo .dropdown-content #formPass input[type=file]{
   color:transparent;
   margin-left: 38px;
+}
+
+#cuerpo #cambiaImg {
+  overflow: hidden;
+  background-color: #E13838;
+  border-right: solid 3px #641212;
+  border-bottom: solid 3px #641212;
+  border-radius: 5px;
+  margin-left: 2px;
+  height: 48px;
+  float: right;
+}
+
+#cuerpo #cambiaImg #cambiaImgBtn {
+  background-color: #FF733D;
+  border-right: solid 3px #FF543D;
+  border-bottom: solid 3px #FF543D;
+
+  color: black;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  width: 205px;
+}
+#cuerpo #formImg {
+  position: relative;
+  background-color: #e13838;
+  padding: 10px;
+  border-right: #641212 3px solid;
+  border-bottom: #641212 3px solid;
+  border-radius: 5%;
+  width: 170px;
+  right: 0px;
+
 }
