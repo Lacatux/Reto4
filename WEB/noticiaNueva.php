@@ -71,7 +71,7 @@
           <label for="resumen">Resumen</label><br>
           <input type="text" name="resumen"><br><br>
         <?php
-            $fecha = date('d-m-Y');
+            $fecha = date('d/M/Y');
             echo "<input id='txt' type='hidden' name='fecha' value='".$fecha."'><br>";
         ?>
           <input id="enviar" type="submit" value="Enviar"/>

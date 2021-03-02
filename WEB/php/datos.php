@@ -207,7 +207,7 @@ function bajaNoticia($id){
 //====================================================================
 function nuevaNoticia($titulo, $cuerpo, $profesor, $resumen, $fecha){
   $conex = conectarBD();
-  $stid = oci_parse($conex, "INSERT INTO NOTICIA(titulo, cuerpo, profesor, resumen, fecha) VALUES ( :titulo , :cuerpo , :profesor , :resumen , :fecha )");
+  $stid = oci_parse($conex, "INSERT INTO NOTICIA(titulo, cuerpo, profesor, resumen, fecha) VALUES (:titulo, :cuerpo, :profesor, :resumen, :fecha)");
   oci_bind_by_name($stid, ':titulo', $titulo);
   oci_bind_by_name($stid, ':cuerpo', $cuerpo);
   oci_bind_by_name($stid, ':profesor', $profesor);
